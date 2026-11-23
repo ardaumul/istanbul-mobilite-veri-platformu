@@ -1,7 +1,7 @@
 -- Oturum 1 | U1.2 Bronze katmanı
 -- Partition kararınız PARTITIONED BY ifadesine yazıldıktan sonra make sql oturumunda çalışır.
 CREATE TABLE lake.bronze.toplu_ulasim
-PARTITIONED BY (/* partition kararınız */) AS
+PARTITIONED BY (month(transition_date)) AS
 SELECT * EXCLUDE (filename),
        parse_filename(filename) AS _kaynak_dosya,
        now() AS _yukleme_zamani
